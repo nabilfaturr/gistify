@@ -1,25 +1,13 @@
-import SignIn from "@/components/shared/sign-in";
-import { auth, signOut } from "@/lib/auth";
+import React from "react";
+import ThemeButton from "@/components/shared/theme-button";
 
-export default async function Home() {
-  const session = await auth();
-
+const HomePage: React.FC = () => {
   return (
     <div>
-      <SignIn />
-      {session && (
-        <div>
-          <p>Signed in as {session.user?.email}</p>
-          <form
-            action={async () => {
-              "use server";
-              await signOut();
-            }}
-          >
-            <button type="submit">Sign out</button>
-          </form>
-        </div>
-      )}
+      <h1>Hello World</h1>
+      <ThemeButton />
     </div>
   );
-}
+};
+
+export default HomePage;
